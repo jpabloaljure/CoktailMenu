@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  prise: 1
+  description: MyText
+  grade: 1
+  oficial: false
+
+two:
+  name: MyString
+  prise: 1
+  description: MyText
+  grade: 1
+  oficial: false

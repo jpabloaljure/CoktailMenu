@@ -1,0 +1,39 @@
+<h1>Listing cocktails oficiales</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Prise</th>
+    <th>Description</th>
+    <th>Grade</th>
+    <th>Oficial</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @cocktails.each do |cocktail| %>
+  <tr>
+    <td><%= cocktail.name %></td>
+    <td><%= cocktail.prise %></td>
+    <td><%= cocktail.description %></td>
+    <td><%= cocktail.grade %></td>
+    <td><%= cocktail.oficial %></td>
+    <%if(session[:userdata]!=nil)%>
+    <td><%= link_to 'Show', cocktail %></td>
+    <td><%= link_to 'Edit', edit_cocktail_path(cocktail) %></td>
+    <td><%= link_to 'Add Comment', new_cocktail_comment_path(cocktail) %></td>
+    <%end%>
+    <td><%= link_to 'Me gusta', megusta_path(cocktail) %></td>
+    <td><%= link_to 'No me gusta', nomegusta_path(cocktail) %></td>
+    
+  </tr>
+<% end %>
+</table>
+
+<br />
+<%= link_to 'Ver sugeridos', cocktails_path %>
+<%= link_to 'New Cocktail', new_cocktail_path %>
+<%if(session[:userdata]!=nil)%>
+<%= link_to 'log out', session_path, :method=>:delete %>
+<%end%>
